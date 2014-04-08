@@ -2,6 +2,8 @@ test("union", function() {
   equal($.union('.a').length, 1);
   equal($.union('.b').length, 2);
   equal($.union('.a', '.b').length, 3);
+  equal($.union($('.a'), $('.b')).length, 3);
+  equal($.union($('.a').toArray().concat($('.b').toArray())).length, 3);
   equal($('.a').union('.b').length, 3);
 });
 
