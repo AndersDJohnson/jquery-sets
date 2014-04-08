@@ -20,13 +20,13 @@ You can now combine jQuery sets using set operations.
 The functions accept any selector, element, or object arguments supported by [`$()`](https://api.jquery.com/jQuery/).
 
 ```js
-$.union(/* ... */);
-$.intersect(/* ... */);
-$.difference(/* ... */);
+$.union(/* ..., ... */);
+$.intersect(/* ..., ... */);
+$.difference(/* ..., ... */);
 ```
 
 ```js
-$(/* ... */).union(/* ... */);
-$(/* ... */).intersect(/* ... */);
-$(/* ... */).difference(/* ... */);
+$(/* ..., ... */).union(/* ..., ... */);
+$(/* ..., ... */).intersect(/* ..., ... */);
+$(/* ..., ... */).difference(/* ..., ... */);
 ```
