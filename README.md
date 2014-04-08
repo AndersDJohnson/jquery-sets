@@ -1,7 +1,7 @@
 jquery-sets
 ===========
 
-set operations for jquery objects
+set operations for jquery sets
 
 ## Install
 
