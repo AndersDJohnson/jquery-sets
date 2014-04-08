@@ -15,9 +15,7 @@ bower install --save jquery-sets
 
 Include on your page, after jQuery. Supports AMD.
 
-You can now combine jQuery sets using set operations.
-
-The functions accept any selector, element, or object arguments supported by [`$()`](https://api.jquery.com/jQuery/).
+You can now combine jQuery sets using set operations:
 
 ```js
 $.union(/* ..., ... */);
@@ -30,3 +28,7 @@ $(/* ..., ... */).union(/* ..., ... */);
 $(/* ..., ... */).intersect(/* ..., ... */);
 $(/* ..., ... */).difference(/* ..., ... */);
 ```
+
+
+The functions accept any selector, element, or object arguments supported by [`$()`](https://api.jquery.com/jQuery/).
+They are also chainable.
