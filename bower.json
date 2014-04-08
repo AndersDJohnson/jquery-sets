@@ -1,0 +1,27 @@
+{
+  "name": "jquery-sets",
+  "version": "0.1.0",
+  "homepage": "https://github.com/AndersDJohnson/jquery-sets",
+  "description": "set operations for jquery sets",
+  "main": "src/jquery.sets.js",
+  "keywords": [
+    "jquery"
+  ],
+  "authors": [
+    "Anders D. Johnson"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.0"
+  },
+  "devDependencies": {
+    "qunit": "~1.14.0"
+  }
+}
