@@ -13,16 +13,7 @@
 
   var slice = Array.prototype.slice;
 
-  $.fn.join = function () {
-    var args = slice.call(arguments);
-
-    var $this = $(this);
-    var items = args.concat($this);
-
-    return $.join(items)
-  };
-
-  $.join = function () {
+  $.union = function () {
     var args = slice.call(arguments);
 
     var $set = $();
@@ -32,6 +23,45 @@
     });
 
     return $set;
+  };
+
+  $.fn.union = function () {
+    var args = slice.call(arguments);
+    args = args.concat(this.toArray());
+    return $.union.apply(null, args);
+  };
+
+  $.intersect = function () {
+    var args = slice.call(arguments);
+
+    var sets = [];
+
+    var $intersect = $();
+
+    $.each(args, function (i, arg) {
+      var $set = $(arg);
+      sets.push($set);
+    });
+
+    $.each(sets, function (i, $set) {
+      $set.each(function (j, el) {
+        var keep = true;
+        $.each(sets, function (j, $otherSet) {
+          keep = keep && $otherSet.filter(el).length > 0;
+        });
+        if (keep) {
+          $intersect = $intersect.add(el);
+        }
+      });
+    });
+
+    return $intersect;
+  };
+
+  $.fn.intersect = function () {
+    var args = slice.call(arguments);
+    var args = args.concat(this);
+    return $.intersect.apply(null, args);
   };
 
 }));
