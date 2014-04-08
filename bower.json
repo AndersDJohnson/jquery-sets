@@ -2,7 +2,7 @@
   "name": "jquery-sets",
   "version": "0.1.0",
   "homepage": "https://github.com/AndersDJohnson/jquery-sets",
-  "description": "set operations for jquery sets",
+  "description": "set operations for jquery objects",
   "main": "src/jquery.sets.js",
   "keywords": [
     "jquery"
