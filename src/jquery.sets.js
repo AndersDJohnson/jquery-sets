@@ -13,6 +13,22 @@
 
   var slice = Array.prototype.slice;
 
+  var toSets = function (args) {
+
+    // if (args && !$.isArray(args[0])) {
+    //   args = slice.call(arguments);
+    // }
+
+    var sets = [];
+
+    $.each(args, function (i, arg) {
+      var $set = $(arg);
+      sets.push($set);
+    });
+
+    return sets;
+  };
+
   $.union = function () {
     var args = slice.call(arguments);
 
@@ -32,16 +48,10 @@
   };
 
   $.intersect = function () {
-    var args = slice.call(arguments);
 
-    var sets = [];
+    var sets = toSets(arguments);
 
     var $intersect = $();
-
-    $.each(args, function (i, arg) {
-      var $set = $(arg);
-      sets.push($set);
-    });
 
     $.each(sets, function (i, $set) {
       $set.each(function (j, el) {
@@ -62,6 +72,39 @@
     var args = slice.call(arguments);
     var args = args.concat(this);
     return $.intersect.apply(null, args);
+  };
+
+  $.difference = function () {
+
+    var sets = toSets(arguments);
+
+    var $difference = $();
+
+    if (sets.length === 0) {
+      return $difference;
+    }
+
+    var $first = sets.shift();
+
+    if (sets.length === 0) {
+      return $first;
+    }
+
+    $difference = $difference.add($first);
+
+    $.each(sets, function (i, $set) {
+      $set.each(function (i, el) {
+        $difference = $difference.not(el);
+      })
+    });
+
+    return $difference;
+  };
+
+  $.fn.difference = function () {
+    var args = slice.call(arguments);
+    var args = [this].concat(arguments);
+    return $.difference.apply(null, args);
   };
 
 }));
