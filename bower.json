@@ -1,6 +1,6 @@
 {
   "name": "jquery-sets",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/AndersDJohnson/jquery-sets",
   "description": "set operations for jquery objects",
   "main": "src/jquery.sets.js",
@@ -19,7 +19,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.0"
+    "jquery": "*"
   },
   "devDependencies": {
     "qunit": "~1.14.0"
